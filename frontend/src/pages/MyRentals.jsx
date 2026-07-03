@@ -65,7 +65,7 @@ export default function MyRentals() {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex gap-4">
                   <img
-                    src={`http://localhost:5000${r.productId?.images?.[0] || ''}`}
+                    src={r.productId?.images?.[0] || ''}
                     alt={r.productId?.title}
                     className="w-16 h-20 object-cover rounded-lg bg-ink/5"
                   />

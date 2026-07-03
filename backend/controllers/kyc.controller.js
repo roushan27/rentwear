@@ -8,7 +8,7 @@ exports.uploadKyc = async (req, res) => {
       return res.status(400).json({ message: 'Please upload a document' });
     }
 
-    const idProofUrl = `/uploads/${req.file.filename}`;
+    const idProofUrl = req.file.path;
 
     const user = await User.findByIdAndUpdate(
       req.user.id,

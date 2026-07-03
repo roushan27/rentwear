@@ -44,13 +44,13 @@ export default function ManageKyc() {
           {users.map((u) => (
             <div key={u._id} className="bg-white border border-ink/10 rounded-2xl p-5 flex items-center gap-5">
               <a
-                href={`http://localhost:5000${u.idProofUrl}`}
+                href={u.idProofUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="w-20 h-20 rounded-xl bg-ink/5 flex items-center justify-center overflow-hidden shrink-0 border border-ink/10 hover:border-emerald transition"
               >
                 {u.idProofUrl?.match(/\.(jpg|jpeg|png|webp)$/i) ? (
-                  <img src={`http://localhost:5000${u.idProofUrl}`} alt="ID proof" className="w-full h-full object-cover" />
+                  <img src={u.idProofUrl} alt="ID proof" className="w-full h-full object-cover" />
                 ) : (
                   <FileText className="text-muted" />
                 )}

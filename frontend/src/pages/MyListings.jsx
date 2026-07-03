@@ -56,7 +56,7 @@ export default function MyListings() {
               <div className="aspect-[4/3] bg-ink/5">
                 {item.images?.[0] && (
                   <img
-                    src={`http://localhost:5000${item.images[0]}`}
+                    src={item.images[0]}
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />

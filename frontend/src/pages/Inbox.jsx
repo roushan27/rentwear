@@ -41,7 +41,7 @@ export default function Inbox() {
                 className="flex items-center gap-3 bg-white border border-ink/10 rounded-xl p-4 hover:border-emerald/50 transition"
               >
                 <img
-                  src={`http://localhost:5000${c.productId?.images?.[0] || ''}`}
+                  src={c.productId?.images?.[0] || ''}
                   alt=""
                   className="w-12 h-12 rounded-lg object-cover bg-ink/5"
                 />

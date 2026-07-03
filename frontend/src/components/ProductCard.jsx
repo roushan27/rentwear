@@ -23,7 +23,7 @@ export default function ProductCard({ product }) {
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-ink/5">
         <img
-          src={`http://localhost:5000${product.images[0]}`}
+          src={product.images[0]}
           alt={product.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
         />

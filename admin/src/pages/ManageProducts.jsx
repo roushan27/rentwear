@@ -107,7 +107,7 @@ export default function ManageProducts() {
               <div className="aspect-[4/3] bg-ink/5">
                 {p.images?.[0] && (
                   <img
-                    src={`http://localhost:5000${p.images[0]}`}
+                    src={p.images[0]}
                     alt={p.title}
                     className="w-full h-full object-cover"
                   />

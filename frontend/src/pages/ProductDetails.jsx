@@ -82,7 +82,7 @@ export default function ProductDetails() {
       <div>
         <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-ink/5 mb-4">
           <img
-            src={`http://localhost:5000${product.images[0]}`}
+            src={product.images[0]}
             alt={product.title}
             className="w-full h-full object-cover"
           />
