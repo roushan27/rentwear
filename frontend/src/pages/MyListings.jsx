@@ -56,8 +56,11 @@ export default function MyListings() {
               <div className="aspect-[4/3] bg-ink/5">
                 {item.images?.[0] && (
                   <img
-                    src={item.images[0]}
+                    src={item.images?.[0] || '/placeholder-image.svg'}
                     alt={item.title}
+                    onError={(e) => {
+                      e.currentTarget.src = '/placeholder-image.svg';
+                    }}
                     className="w-full h-full object-cover"
                   />
                 )}

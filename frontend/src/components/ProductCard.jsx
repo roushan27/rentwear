@@ -23,8 +23,11 @@ export default function ProductCard({ product }) {
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-ink/5">
         <img
-          src={product.images[0]}
+          src={product.images?.[0] || '/placeholder-image.svg'}
           alt={product.title}
+          onError={(e) => {
+            e.currentTarget.src = '/placeholder-image.svg';
+          }}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
         />
         <button

@@ -1,5 +1,6 @@
 
 const Product = require('../models/Product.model');
+const { getImageUrls } = require('../utils/normalizeImage');
 
 const generateSlug = (title) => {
   return title
@@ -17,7 +18,7 @@ exports.createProduct = async (req, res) => {
       return res.status(400).json({ message: 'Please fill all required fields' });
     }
 
-    const images = req.files ? req.files.map(file => file.path) : [];
+    const images = getImageUrls(req.files);
     const product = await Product.create({
       title,
       slug: generateSlug(title),
@@ -46,8 +47,7 @@ exports.listUserItem = async (req, res) => {
       return res.status(400).json({ message: 'Please add a pickup location' });
     }
 
-    const images = req.files ? req.files.map(file => file.path) : [];
-    console.log("LIST-ITEM req.files:", JSON.stringify(req.files, null, 2));
+    const images = getImageUrls(req.files);
 
     const product = await Product.create({
       title,
@@ -158,7 +158,7 @@ exports.updateProduct = async (req, res) => {
   try {
     const updates = req.body;
     if (req.files && req.files.length > 0) {
-      updates.images = req.files.map(file => file.path);
+      updates.images = getImageUrls(req.files);
     }
     const product = await Product.findByIdAndUpdate(req.params.id, updates, { returnDocument: 'after' });
     if (!product) return res.status(404).json({ message: 'Product not found' });

@@ -82,8 +82,11 @@ export default function ProductDetails() {
       <div>
         <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-ink/5 mb-4">
           <img
-            src={product.images[0]}
+            src={product.images?.[0] || '/placeholder-image.svg'}
             alt={product.title}
+            onError={(e) => {
+              e.currentTarget.src = '/placeholder-image.svg';
+            }}
             className="w-full h-full object-cover"
           />
         </div>

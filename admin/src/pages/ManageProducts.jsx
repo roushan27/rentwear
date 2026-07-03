@@ -107,8 +107,11 @@ export default function ManageProducts() {
               <div className="aspect-[4/3] bg-ink/5">
                 {p.images?.[0] && (
                   <img
-                    src={p.images[0]}
+                    src={p.images?.[0] || '/placeholder-image.svg'}
                     alt={p.title}
+                    onError={(e) => {
+                      e.currentTarget.src = '/placeholder-image.svg';
+                    }}
                     className="w-full h-full object-cover"
                   />
                 )}

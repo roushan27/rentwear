@@ -65,8 +65,11 @@ export default function MyRentals() {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex gap-4">
                   <img
-                    src={r.productId?.images?.[0] || ''}
+                    src={r.productId?.images?.[0] || '/placeholder-image.svg'}
                     alt={r.productId?.title}
+                    onError={(e) => {
+                      e.currentTarget.src = '/placeholder-image.svg';
+                    }}
                     className="w-16 h-20 object-cover rounded-lg bg-ink/5"
                   />
                   <div>

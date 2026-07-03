@@ -1,4 +1,5 @@
 const User = require('../models/User.model');
+const { getImageUrl } = require('../utils/normalizeImage');
 
 // @desc    Upload KYC document
 // @route   POST /api/kyc/upload
@@ -8,7 +9,7 @@ exports.uploadKyc = async (req, res) => {
       return res.status(400).json({ message: 'Please upload a document' });
     }
 
-    const idProofUrl = req.file.path;
+    const idProofUrl = getImageUrl(req.file);
 
     const user = await User.findByIdAndUpdate(
       req.user.id,

@@ -41,8 +41,11 @@ export default function Inbox() {
                 className="flex items-center gap-3 bg-white border border-ink/10 rounded-xl p-4 hover:border-emerald/50 transition"
               >
                 <img
-                  src={c.productId?.images?.[0] || ''}
+                  src={c.productId?.images?.[0] || '/placeholder-image.svg'}
                   alt=""
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder-image.svg';
+                  }}
                   className="w-12 h-12 rounded-lg object-cover bg-ink/5"
                 />
                 <div className="flex-1 min-w-0">
